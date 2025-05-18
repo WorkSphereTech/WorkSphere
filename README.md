@@ -43,7 +43,7 @@ npm run dev
 Here are some screenshots of the WorkSphere interface:
 
 ### 🔐 Login Page
-![Login Page]([./screenshots/login.png](https://github.com/user-attachments/assets/3b5e3493-331c-48ad-a757-574d25bb3040))
+![Login Page](https://github.com/user-attachments/assets/3b5e3493-331c-48ad-a757-574d25bb3040)
 
 ### 🧑‍💼 Admin Dashboard
 ![Admin Dashboard](https://github.com/user-attachments/assets/ac2bbc90-fa63-4b19-84da-b3bac195433a)
