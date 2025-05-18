@@ -28,16 +28,15 @@ WorkSphere is a modern Employee Management System built using **React**, **JavaS
 ```bash
 git clone https://github.com/WorkSphereTech/WorkSphere
 cd worksphere
-
+```
 ### 2. 🛠️ Install Dependencies
-
+```bash
 - npm install
-
+```
 ### 3. 🚀 Start Development Server
-
 ```bash
 npm run dev
-
+```
 ## 📸 Demo
 
 Here are some screenshots of the WorkSphere interface:
@@ -57,6 +56,7 @@ Here are some screenshots of the WorkSphere interface:
 ![Employee Dashboard](https://github.com/user-attachments/assets/bcec1b39-c0b3-48af-adcc-a4d8c15c7dcf)
 ![Employee Dashboard](https://github.com/user-attachments/assets/0dd908fa-e8a7-4d74-9e8a-4f63d6a763cc)
 ![Employee Dashboard](https://github.com/user-attachments/assets/242f4938-4dc1-4d9d-8804-35e5d16f2c09)
+
 
 ## 👥 Contributors
 - [Shiven](https://github.com/shiven20) — Frontend & Authentication
