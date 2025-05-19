@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAuth } from '../../context/authContext';
+import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Add = () => {
@@ -24,7 +24,7 @@ const Add = () => {
               }
             })
             if(response.data.success){
-              navigate('employee-dashboard/leaves')
+              navigate('employee-dashboard/leaves') //Add ${user._id}
             }
           } catch(error){
             if(error.response && !error.response.data.success){
