@@ -26,7 +26,7 @@ const Sidebar = () => {
                     <FaBuilding/>
                     <span>Leaves</span>
                 </NavLink>
-                <NavLink to={`/employee-dashboard/salary/`} // Add '${user._id} after /salary' here
+                <NavLink to={`/employee-dashboard/salary/`} // Add '${user._id}/ after /salary' here
                 className={({isActive})=>`${isActive ? "bg-teal-500" : ""} flex items-center space-x-4 py-2.5 px-4 rounded`} end>
                     <FaCalendar/>
                     <span>Salary</span>
