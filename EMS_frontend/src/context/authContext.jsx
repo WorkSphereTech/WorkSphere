@@ -1,10 +1,10 @@
-/* import axios from 'axios'
+ /*import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const  userContext= createContext()
 
-const authContext = ({children}) => {
+const AuthContext = ({children}) => {
     const [user,setUser]=useState(null)
    const [loading,setLoading]=useState(true)
 
@@ -52,7 +52,7 @@ const authContext = ({children}) => {
 }
 
 export const useAuth=()=>useContext(userContext)
-export default authContext */
+export default AuthContext */
 
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';

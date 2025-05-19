@@ -24,8 +24,8 @@ const AdminSidebar = () => {
                     <FaBuilding/>
                     <span>Department</span>
                 </NavLink>
-                <NavLink to="/admin-dashboard"
-                className=" items-center space-x-4 flex py-2.5 px-4 rounded">
+                <NavLink to="/admin-dashboard/leaves"
+                className={({isActive})=>`${isActive ? "bg-teal-500" : ""} flex items-center space-x-4 py-2.5 px-4 rounded`}>
                     <FaCalendar/>
                     <span>Leave</span>
                 </NavLink>
@@ -34,7 +34,7 @@ const AdminSidebar = () => {
                     <FaMoneyBillWave/>
                     <span>Salary</span>
                 </NavLink>
-                <NavLink to="/admin-dashboard"
+                <NavLink to="/admin-dashboard/setting"
                 className=" items-center space-x-4 flex py-2.5 px-4 rounded">
                     <FaCogs/>
                     <span>Settings</span>

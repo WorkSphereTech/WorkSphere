@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {FaBuilding, FaCalendar, FaCogs, FaMoneyBillWave, FaTachometerAlt , FaUser} from 'react-icons/fa'
-import { useAuth } from '../../context/authContext'
+import { useAuth } from '../../context/AuthContext'
 const Sidebar = () => {
   const {user}= useAuth()
   return (
@@ -21,12 +21,12 @@ const Sidebar = () => {
                     <FaUser/>
                     <span>My Profile</span>
                 </NavLink>
-                <NavLink to="/employee-dashboard/leaves"
+                <NavLink to={`/employee-dashboard/leaves/`} // Add '${user._id} after /salary' here
                 className={({isActive})=>`${isActive ? "bg-teal-500" : ""} flex items-center space-x-4 py-2.5 px-4 rounded`} end>
                     <FaBuilding/>
                     <span>Leaves</span>
                 </NavLink>
-                <NavLink to="/employee-dashboard/salary"
+                <NavLink to={`/employee-dashboard/salary/`} // Add '${user._id} after /salary' here
                 className={({isActive})=>`${isActive ? "bg-teal-500" : ""} flex items-center space-x-4 py-2.5 px-4 rounded`} end>
                     <FaCalendar/>
                     <span>Salary</span>
