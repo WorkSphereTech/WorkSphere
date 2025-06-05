@@ -1,4 +1,4 @@
-import React from "react"; // ✅ Add this if missing
+import React from "react"; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Login from "./pages/Login";
@@ -17,6 +17,12 @@ import Edit from "./components/employee/Edit";
 import AddSalary from "./components/salary/Add";
 import ViewSalary from "./components/salary/View";
 import Summary from "./components/EmployeeDashboard/Summary";
+import LeaveList from "./components/leave/List";
+import AddLeave from "./components/leave/Add"
+import Setting from "./components/EmployeeDashboard/Setting";
+import Table from "./components/leave/Table";
+import Details from "./components/leave/Details";
+
 function App() {
   return (
     
@@ -67,6 +73,10 @@ function App() {
             path="/admin-dashboard/salary/add"
             element={<AddSalary />}
           ></Route>
+          <Route path="/admin-dashboard/leaves" element={<Table/>}></Route>
+          <Route path="/admin-dashboard/leaves/:id" element={<Details/>}></Route>
+          <Route path="/admin-dashboard/employees/leaves/:id" element={<LeaveList/>}></Route>
+          <Route path="/admin-dashboard/setting" element={<Setting/>}></Route>
         </Route>
         <Route
           path="/employee-dashboard"
@@ -82,6 +92,22 @@ function App() {
           <Route
             path="/employee-dashboard/profile/:id"
             element={<View />}
+          ></Route>
+          <Route
+            path="/employee-dashboard/leaves/:id"
+            element={<LeaveList/>}
+          ></Route>
+          <Route
+            path="/employee-dashboard/add-leave"
+            element={<AddLeave/>}
+          ></Route>
+          <Route
+            path="/employee-dashboard/salary/:id"
+            element={<ViewSalary/>}
+          ></Route>
+          <Route
+            path="/employee-dashboard/setting"
+            element={<Setting/>}
           ></Route>
         </Route>
       </Routes>

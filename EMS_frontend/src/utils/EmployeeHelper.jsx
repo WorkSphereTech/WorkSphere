@@ -80,7 +80,7 @@ export const fetchDepartments=async()=>{
 
      export const EmployeeButtons=({Id})=>{
       const navigate=useNavigate()
-      
+    
       return (
           <div className="flex space-x-3">
               <button className="px-4 py-1 bg-teal-600 text-white"
@@ -94,7 +94,7 @@ export const fetchDepartments=async()=>{
               onClick={()=>navigate(`/admin-dashboard/employees/salary/${Id}`)}
               >Salary</button>
               <button className="px-4 py-1 bg-red-600 text-white"
-              
+              onClick={()=>navigate(`/admin-dashboard/employees/leaves/${Id}`)}
               >Leave</button>
           </div>
       )
