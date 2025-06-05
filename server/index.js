@@ -1,14 +1,17 @@
 import express from 'express'
 import cors from 'cors'
-import authRouter from './routes/auth.js'
+import router from "./routes/auth.js";
+import connectToDatabase from './db/db.js';
 
-const port = process.env.PORT || 3000;
+connectToDatabase()
+
+const port = process.env.PORT;
 
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.use('api/auth', authRouter)
+app.use('/api/auth', router);
 
 app.listen(port, ()=>{
-    console.log(`server is rnning on port ${port}`)
+    console.log(`server is running on port ${port}`)
 })
