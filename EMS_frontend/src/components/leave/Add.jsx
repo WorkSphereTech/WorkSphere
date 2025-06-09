@@ -9,7 +9,6 @@ const Add = () => {
     })
 
     const navigate =useNavigate()
-
     const handleChange = (e) =>{
         const {name,value} = e.target
         setLeave((prevState) =>({...prevState,[name]:value}))

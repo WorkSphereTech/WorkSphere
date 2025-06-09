@@ -111,4 +111,4 @@ const AuthProvider = ({ children }) => { // ✅ Correct component name
 // ✅ Corrected useAuth Hook
 export const useAuth = () => useContext(UserContext);
 
-export { AuthProvider }; // ✅ Named export for `AuthProvider`
+export { AuthProvider }; 
