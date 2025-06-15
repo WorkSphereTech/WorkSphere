@@ -32,7 +32,7 @@ function App() {
         <Route
           path="/admin-dashboard"
           element={
-            /*<PrivateRoutes>
+         /*   <PrivateRoutes>
             <RoleBaseRoutes requiredRole={["admin"]}>*/
             <AdminDashboard />
             /*</RoleBaseRoutes>

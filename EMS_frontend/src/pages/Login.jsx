@@ -17,7 +17,7 @@ const  Login = () => {
             const response=await axios.post("http://localhost:4000/api/auth/login",{email,password});
             console.log(response)
             if(response.data.success){
-                alert("Successfully logged in!")
+                console.log("Successfully logged in!")
                 login(response.data.user)
                 localStorage.setItem("token", response.data.token)
                 if(response.data.user.role==="admin"){
