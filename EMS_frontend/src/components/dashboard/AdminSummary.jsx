@@ -8,7 +8,7 @@ const AdminSummary = () => {
   useEffect(()=>{
     const fetchSummary =async()=>{
       try {
-        const summary = await axios.get('https://localhost:5000/api/dashboard/summary',{
+        const summary = await axios.get('http://localhost:4000/api/dashboard/summary',{
           header:{
             "Authorization":`Bearer ${localStorage.getItem('token')}`
           }

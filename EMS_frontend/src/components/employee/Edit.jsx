@@ -27,7 +27,7 @@ export const Edit = () => {
     const fetchEmployee=async()=>{
            
         try{
-          const response= await axios.get(`http://localhost:5000/api/employee/${id}`,{
+          const response= await axios.get(`http://localhost:4000/api/employee/${id}`,{
             headers:{
               "Authorization":`Bearer ${localStorage.getItem('token')}`
             }
@@ -63,7 +63,7 @@ export const Edit = () => {
 
   
     try{
-                const response = await axios.put(`http://localhost:5000/api/employee/${id}`, employee, {
+                const response = await axios.put(`http://localhost:4000/api/employee/${id}`, employee, {
                     headers:{
                         "Authorization" : `Bearer ${localStorage.getItem('token')}`
                     }
@@ -166,9 +166,9 @@ export const Edit = () => {
             required
             >
               <option value="">Select Department</option>
-              {/*}{departments.map((dep)=>(
+              {}{departments.map((dep)=>(
                 <option key={dep._id} value={dep._id}>{dep.dep_name}</option>
-              ))*/}
+              ))}
               
             </select>
           </div>

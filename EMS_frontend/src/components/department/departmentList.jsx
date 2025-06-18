@@ -108,7 +108,7 @@ function DepartmentList() {
           dep_name: dep.dep_name,
           action: (
             <DepartmentButtons
-              Id={dep._id}
+              _id={dep._id}
               onDepartmentDelete={fetchDepartments}
             />
           )

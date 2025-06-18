@@ -17,13 +17,14 @@ import { useNavigate } from "react-router-dom"
     },
 ]
 
-export const DepartmentButtons=({Id, onDepartmentDelete})=>{
+export const DepartmentButtons=({_id, onDepartmentDelete})=>{
     const navigate=useNavigate()
     const handleDelete=async (id)=>{
         const confirm=window.confirm("Do you want to delete?")
         if(confirm){
         try{
-            
+            if (!id) return console.error("No _id provided to delete button");
+
             const response= await axios.delete(`http://localhost:4000/api/department/${id}`,{
               headers:{
                 "Authorization":`Bearer ${localStorage.getItem('token')}`
@@ -43,10 +44,10 @@ export const DepartmentButtons=({Id, onDepartmentDelete})=>{
     return (
         <div className="flex space-x-3">
             <button className="px-4 py-1 bg-teal-600 text-white"
-            onClick={()=>navigate(`/admin-dashboard/department/${Id}`)}
+            onClick={()=>navigate(`/admin-dashboard/department/${_id}`)}
             >Edit</button>
             <button className="px-4 py-1 bg-red-600 text-white"
-            onClick={()=>handleDelete(Id)}
+            onClick={()=>handleDelete(_id)}
             >Delete</button>
         </div>
     )

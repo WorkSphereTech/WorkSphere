@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Department from "../models/department.js";
 
 const getDepartment = async (req, res) => {
@@ -116,6 +117,8 @@ const deleteDepartment = async (req, res) => {
     });
   }
 };
+
+
 
 
 
