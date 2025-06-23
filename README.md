@@ -59,8 +59,8 @@ Here are some screenshots of the WorkSphere interface:
 
 
 ## 👥 Contributors
-- [Shiven](https://github.com/shiven20) — Frontend & Authentication
-- [Ayush](https://github.com/ayushjoshicodes) — Dashboard UI & Routing
+- [Shiven Garg](https://github.com/shiven20) — Frontend & Authentication
+- [Ayush Joshi](https://github.com/ayushjoshicodes) — Dashboard UI & Routing
 
 
 
