@@ -13,7 +13,7 @@ const Summary = () => {
         </div>
         <div className='pl-4 py-1'>
             <p className='text-lg font-semibold'>Welcome Back</p>
-            <p className='text-xl font-bold'>{/*user.name*/}</p>
+            <p className='text-xl font-bold'>{user.name}</p>
         </div>
     </div>
     </div>

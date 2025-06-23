@@ -22,6 +22,7 @@ import {
   getEmployees,
   getEmployee,
   updateEmployee,
+  fetchEmployeesByDepId,
 } from "../controllers/employeeController.js";
 import authMiddleware from '../middleware/authMiddleware.js';
 
@@ -40,6 +41,8 @@ router.get("/:id", authMiddleware, getEmployee);
 router.get('/', authMiddleware, getEmployees);
 
 router.put("/:id", authMiddleware, updateEmployee);
+
+router.get("/department/:id", authMiddleware, fetchEmployeesByDepId);
 
 export default router;
 

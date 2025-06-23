@@ -3,6 +3,7 @@ import cors from 'cors'
 import router from "./routes/auth.js";
 import departmentRouter from "./routes/department.js"
 import employeementRouter from "./routes/employee.js";
+import salaryRouter from "./routes/salary.js"
 import connectToDatabase from './db/db.js';
 
 connectToDatabase()
@@ -16,6 +17,7 @@ app.use('/api/auth', router);
 app.use(express.static('public/uploads'))
 app.use("/api/department", departmentRouter);
 app.use("/api/employee", employeementRouter);
+app.use("/api/salary", salaryRouter)
 
 
 app.listen(port, ()=>{
