@@ -288,7 +288,7 @@ export const fetchDepartments=async()=>{
   /* ───── Employee Action Buttons ───── */
 export const EmployeeButtons = ({ Id }) => {
   const navigate = useNavigate();
-
+  //console.log(Id)
   return (
     <div className="flex space-x-3">
       <button

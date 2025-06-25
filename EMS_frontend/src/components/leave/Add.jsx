@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Add = () => {
     const {user}=useAuth()
+    
     const [leave,setLeave]=useState({
-        /*userId:user._id,*/
+        userId:user._id
     })
 
     const navigate =useNavigate()
@@ -16,14 +19,18 @@ const Add = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        
         try{
-            const response= await axios.post(`http://localhost:5000/api/leave/add`,leave,{
+          
+            const response= await axios.post(`http://localhost:4000/api/leave/add`,leave,{
               headers:{
                 "Authorization":`Bearer ${localStorage.getItem('token')}`
               }
             })
+            
             if(response.data.success){
-              navigate('employee-dashboard/leaves') //Add ${user._id}
+              
+              navigate(`/employee-dashboard/leaves/${user._id}`);  
             }
           } catch(error){
             if(error.response && !error.response.data.success){
@@ -50,7 +57,7 @@ const Add = () => {
                 className='mt-1 p-2 block w-full border border-gray-300 rounded-md'
                 required
                 >
-                  <option value="">Select Department</option>
+                  <option value="">Select Leave</option>
                   {/*}{departments.map((dep)=>(
                     <option key={dep._id} value={dep._id}>{dep.dep_name}</option>
                   ))*/}
@@ -111,7 +118,7 @@ const Add = () => {
             <button type='submit'
             className='w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'
             >
-              Add Salary
+              Add Leave
             </button>
           </form>
         </div>

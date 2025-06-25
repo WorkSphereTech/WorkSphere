@@ -10,27 +10,30 @@ const View = () => {
     const {id}=useParams()
     let sno=1
     const {user}=useAuth()
-
+    
+    
     const fetchSalaries=async()=>{
-        try{
-            const response = await axios.get(
-              `http://localhost:4000/api/salary/${id}`,
-              {
-                headers: {
-                  Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
-              }
-            );
-            console.log(response.data)
-            if(response.data.success){
-                setSalareies(response.data.salary)
-                setFilteredSalaries(response.data.salary)
-            }
-        } catch(error){
-            if(error.response && !error.response.data.success){
-                alert(error.message)
-            }
+      //console.log("Token:", localStorage.getItem("token")); // 👈 ADD THIS
+      try {
+        //console.log(id);
+        const response = await axios.get(
+          `http://localhost:4000/api/salary/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        console.log(response.data);
+        if (response.data.success) {
+          setSalareies(response.data.salary);
+          setFilteredSalaries(response.data.salary);
         }
+      } catch (error) {
+        if (error.response && !error.response.data.success) {
+          alert(error.message);
+        }
+      }
     }
 
     useEffect(()=>{

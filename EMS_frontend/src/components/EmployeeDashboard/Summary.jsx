@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
-import { useAuth } from '../../context/authContext'
+import { useAuth } from '../../context/AuthContext'
 
 
 const Summary = () => {
-    const user=useAuth()
+    const {user} = useAuth()
   return (
     <div className='p-6'>
     <div className='rounded flex bg-white'>

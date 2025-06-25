@@ -6,10 +6,10 @@ import connectToDatabase from "./db/db.js";
 const userRegister = async () => {
    await connectToDatabase();
   try {
-    const hashPassword = await bcrypt.hash("ayushjoshi", 10);
+    const hashPassword = await bcrypt.hash("admin", 10);
     const newUser = new User({
       name: "Admin",
-      email: "ayush@gmail.com",
+      email: "admin@gmail.com",
       password: hashPassword,
       role: "admin",
     });

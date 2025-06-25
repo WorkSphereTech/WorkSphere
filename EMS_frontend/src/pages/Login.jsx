@@ -65,7 +65,7 @@ const  Login = () => {
                     <input type="checkbox" className='form-checkbox'/>
                     <span className='ml-2 text-gray-700'>Remember Me</span>
                 </label>
-                <a href="#" className='text-teal-600'>Forgot password?</a>
+                
             </div>
             <div className='mb-4'>
             <button type='submit' className='w-full bg-teal-600 text-white py-2'>Login</button>

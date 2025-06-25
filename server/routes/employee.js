@@ -30,9 +30,9 @@ const router = express.Router();
 
 
 router.post(
-  '/add',
+  "/add",
   authMiddleware,
-  upload.single('image'), // or .none() if no file upload
+  upload.single("image"), // or .none() if no file upload
   addEmployee
 );
 

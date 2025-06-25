@@ -32,13 +32,13 @@ const List = () => {
          const data = await response.data.employees.map((emp) => ({
            _id: emp._id,
            sno: sno++,
-           dep_name: emp.department.dep_name || "ayush",
+           dep_name: emp.department.dep_name,
            name: emp.userId.name,
            dob: new Date(emp.dob).toLocaleDateString(),
            profileImage: (
              <img
                className="w-[40px] h-[40px] rounded-full object-cover"
-               src={`http://localhost:4000/${emp.userId.profileImage}`}
+               src={emp.userId.profileImage}
              />
            ),
            action: <EmployeeButtons Id={emp._id} />,

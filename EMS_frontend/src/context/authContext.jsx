@@ -1,4 +1,4 @@
- /*import axios from 'axios'
+/*import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -52,63 +52,72 @@ const AuthContext = ({children}) => {
 }
 
 export const useAuth=()=>useContext(userContext)
-export default AuthContext */
+export default AuthContext */ 
 
-import axios from 'axios';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+
+import axios from "axios";
+import React, { createContext, useContext, useEffect, useState } from "react";
+
 
 const UserContext = createContext(); // ✅ Use proper capitalization
 
-const AuthProvider = ({ children }) => { // ✅ Correct component name
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+const AuthProvider = ({ children }) => {
+  // ✅ Correct component name
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const verifyUser = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                if (token) {
-                    const response = await axios.get('http://localhost:4000/api/auth/verify', {
-                        headers: {
-                            "Authorization": `Bearer ${token}`
-                        }
-                    });
-                    if (response.data.success) {
-                        setUser(response.data.user);
-                    }
-                } else {
-                    setUser(null);
-                    setLoading(false); // ✅ Ensure loading is updated
-                }
-            } catch (error) {
-                if (error.response && !error.response.data.error) {
-                    setUser(null);
-                }
-            } finally {
-                setLoading(false);
+  useEffect(() => {
+    const verifyUser = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (token) {
+          const response = await axios.get(
+            "http://localhost:4000/api/auth/verify",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
             }
-        };
-        verifyUser();
-    }, []);
-
-    const login = (userData) => { // ✅ Accept user data argument
-        setUser(userData);
-        localStorage.setItem("token", userData.token); // ✅ Store token on login
+          );
+          if (response.data.success) {
+            setUser(response.data.user);
+          }
+        } else {
+          setUser(null);
+          setLoading(false); // ✅ Ensure loading is updated
+        }
+      } catch (error) {
+        if (error.response && !error.response.data.error) {
+          setUser(null);
+        }
+      } finally {
+        setLoading(false);
+      }
     };
+    verifyUser();
+  }, []);
 
-    const logout = () => {
-        setUser(null);
-        localStorage.removeItem("token");
-    };
+  const login = (userData) => {
+    // ✅ Accept user data argument
+    setUser(userData);
+    localStorage.setItem("token", userData.token); // ✅ Store token on login
+  };
 
-    return (
-        <UserContext.Provider value={{ user, login, logout, loading }}>
-            {children}
-        </UserContext.Provider>
-    );
+  const logout = (navigate) => {
+    setUser(null);
+    localStorage.removeItem("token");
+    if (navigate) navigate("/login"); // ⬅️ Redirect to login
+  };
+
+
+  return (
+    <UserContext.Provider value={{ user, login, logout, loading }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 // ✅ Corrected useAuth Hook
 export const useAuth = () => useContext(UserContext);
 
-export { AuthProvider }; 
+export { AuthProvider };

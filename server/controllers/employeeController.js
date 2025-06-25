@@ -1,4 +1,5 @@
 import multer from "multer";
+import { storage } from "../utils/cloudinary.js";
 import Employee from "../models/employee.js";
 import User from "../models/User.js";
 import Department from "../models/department.js";
@@ -8,14 +9,14 @@ import mongoose from "mongoose";
 import { log } from "console";
 
 // ------------------- File Upload Setup -------------------
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/uploads");
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public/uploads");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + path.extname(file.originalname));
+//   },
+// });
 
 const upload = multer({ storage });
 
@@ -57,7 +58,7 @@ const addEmployee = async (req, res) => {
       email,
       password: hashedPassword,
       role,
-      profileImage: req.file ? req.file.filename : "",
+      profileImage: req.file ? req.file.path : "",
     });
 
     const savedUser = await newUser.save();
@@ -103,22 +104,44 @@ const getEmployees = async (req, res) => {
   }
 };
 
-const getEmployee = async (req, res) => {
+// const getEmployee = async (req, res) => {
     
-  try {  
-    const { id } = req.params;
-    const employee = await Employee.findById({_id: id})
-    .populate("userId",{password: 0})
-    .populate("department");
+//   try {  
+//     const { id } = req.params;
+//     const employee = await Employee.findById({_id: id})
+//     .populate("userId",{password: 0})
+//     .populate("department");
 
-     return res.status(200).json({success: true , employee});
-  }
-  catch(err){
-    console.error("❌ Error in getEmployee:", err);
-    return res.status(500).json({ success: false, err: "Server error" });
-  }
+//      return res.status(200).json({success: true , employee});
+//   }
+//   catch(err){
+//     console.error("❌ Error in getEmployee:", err);
+//     return res.status(500).json({ success: false, err: "Server error" });
+//   }
      
-}
+// }
+
+const getEmployee = async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    let employee;
+
+    employee = await Employee.findById({ _id: id })
+      .populate("userId", { password: 0 })
+      .populate("department");
+
+    if (!employee) {
+      employee = await Employee.findOne({ userId: id })
+        .populate("userId", { password: 0 })
+        .populate("department");
+    }
+
+    return res.status(200).json({ success: true, employee });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: "server error" });
+  }
+};
 
 const updateEmployee = async (req , res) => {
   try {
