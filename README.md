@@ -2,6 +2,10 @@
 
 WorkSphere is a modern Employee Management System built using **React**, **JavaScript**, and **Tailwind CSS**. It allows for seamless interaction between administrators and employees through a simple and clean user interface.
 
+## 🚀 Deployment
+
+Check out the live version of the project here: [WorkSphere Live](https://worksphere-1-ar5s.onrender.com)
+
 ## 🔍 Features
 
 - 🔐 Login and Authentication System
