@@ -6,6 +6,22 @@ WorkSphere is a modern Employee Management System built using **React**, **JavaS
 
 Check out the live version of the project here: [WorkSphere Live](https://worksphere-1-ar5s.onrender.com)
 
+## ✨ Demo Credentials
+
+Use the following credentials to log in and explore the application:
+
+### 👤 User Login
+
+```plaintext
+Email: shiven@gmail.com  
+Password: admin
+```
+### 🔐 Admin Login 
+```plaintext
+Email: admin@gmail.com
+password: admin
+```
+
 ## 🔍 Features
 
 - 🔐 Login and Authentication System
