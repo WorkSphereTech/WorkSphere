@@ -40,6 +40,8 @@ password: admin
 - **Routing**: React Router
 - **State Management**: React's useState and useEffect, with a custom useAuth hook for authentication
 - **Authentication**: Custom authentication using email and password
+- **Backend**: Node.js, Express.js, Axios, Render, Mongoose, MongoDB, Cloudinary
+- **Project Deployment**: Render
 
 ## 📦 Getting Started
 
